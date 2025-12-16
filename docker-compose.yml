@@ -31,7 +31,7 @@ services:
     container_name: hangman-app
     restart: always
     ports:
-      - "8080:8080"
+      - "8081:8080"
     environment:
       #bd config
       SPRING_PROFILES_ACTIVE: docker
