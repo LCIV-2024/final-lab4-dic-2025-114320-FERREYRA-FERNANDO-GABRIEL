@@ -42,7 +42,6 @@ public class GameService {
     @Transactional
     public GameResponseDTO startGame(Long playerId) {
         GameResponseDTO response = new GameResponseDTO();
-        // TODO: Implementar el método startGame
         // Validar que el jugador existe
         Player player = playerRepository.findById(playerId)
                 .orElseThrow(() -> new RuntimeException("Jugador no encontrado con id: " + playerId));
@@ -82,7 +81,6 @@ public class GameService {
     @Transactional
     public GameResponseDTO makeGuess(Long playerId, Character letra) {
         GameResponseDTO response = new GameResponseDTO();
-        // TODO: Implementar el método makeGuess
         // Validar que el jugador existe
         Player player = playerRepository.findById(playerId)
                 .orElseThrow(() -> new RuntimeException("Jugador no encontrado con id: " + playerId));

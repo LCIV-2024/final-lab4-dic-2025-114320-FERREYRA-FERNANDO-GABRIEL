@@ -39,7 +39,6 @@ class WordServiceTest {
 
     @Test
     void testGetAllWords() {
-        // TODO: Implementar el test para getAllWords
         // Given
         List<Word> words = Arrays.asList(word1, word2, word3);
         when(wordRepository.findAllOrdered()).thenReturn(words);
@@ -72,7 +71,6 @@ class WordServiceTest {
 
     @Test
     void testGetAllWords_EmptyList() {
-        // TODO: Implementar el test para getAllWords_EmptyList
         // Given
         when(wordRepository.findAllOrdered()).thenReturn(new ArrayList<>());
 
@@ -88,4 +86,3 @@ class WordServiceTest {
         verify(wordRepository, times(1)).findAllOrdered();
     }
 }
-

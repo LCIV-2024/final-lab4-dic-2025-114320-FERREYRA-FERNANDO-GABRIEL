@@ -54,7 +54,6 @@ class GameServiceTest {
 
     @Test
     void testStartGame_Success() {
-        // TODO: Implementar el test para testStartGame_Success
         // Given
         when(playerRepository.findById(1L)).thenReturn(Optional.of(player));
         when(wordRepository.findRandomWord()).thenReturn(Optional.of(word));
@@ -245,4 +244,3 @@ class GameServiceTest {
         verify(gameInProgressRepository, never()).save(any(GameInProgress.class));
     }
 }
-

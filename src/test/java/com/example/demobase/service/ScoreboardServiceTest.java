@@ -109,7 +109,6 @@ class ScoreboardServiceTest {
 
     @Test
     void testGetScoreboardByPlayer_Success() {
-        // TODO: Implementar el test para testGetScoreboardByPlayer_Success
         // Given
         List<Game> player1Games = Arrays.asList(game1, game2, game3);
         when(playerRepository.findById(1L)).thenReturn(java.util.Optional.of(player1));
@@ -166,4 +165,3 @@ class ScoreboardServiceTest {
         assertTrue(result.get(0).getPuntajeTotal() >= result.get(1).getPuntajeTotal());
     }
 }
-
