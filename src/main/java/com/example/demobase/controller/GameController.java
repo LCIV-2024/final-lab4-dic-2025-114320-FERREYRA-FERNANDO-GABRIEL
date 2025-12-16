@@ -5,7 +5,6 @@ import com.example.demobase.dto.GameResponseDTO;
 import com.example.demobase.service.GameService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,11 +13,14 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/games")
-@RequiredArgsConstructor
 @Tag(name = "Partidas", description = "API para gestión de partidas del juego Hangman")
 public class GameController {
     
     private final GameService gameService;
+
+    public GameController(GameService gameService) {
+        this.gameService = gameService;
+    }
     
     @PostMapping("/start/{playerId}")
     @Operation(summary = "Iniciar nueva partida")
@@ -48,4 +50,3 @@ public class GameController {
         return ResponseEntity.ok(gameService.getGamesByPlayer(playerId));
     }
 }
-

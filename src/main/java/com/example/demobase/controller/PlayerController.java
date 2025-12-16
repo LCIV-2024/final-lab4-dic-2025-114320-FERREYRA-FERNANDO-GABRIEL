@@ -4,7 +4,6 @@ import com.example.demobase.dto.PlayerDTO;
 import com.example.demobase.service.PlayerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +12,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/players")
-@RequiredArgsConstructor
 @Tag(name = "Jugadores", description = "API para gestión de jugadores")
 public class PlayerController {
     
     private final PlayerService playerService;
+
+    public PlayerController(PlayerService playerService) {
+        this.playerService = playerService;
+    }
     
     @GetMapping
     @Operation(summary = "Obtener todos los jugadores")
@@ -51,4 +53,3 @@ public class PlayerController {
         return ResponseEntity.noContent().build();
     }
 }
-

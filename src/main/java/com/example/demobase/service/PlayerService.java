@@ -3,7 +3,6 @@ package com.example.demobase.service;
 import com.example.demobase.dto.PlayerDTO;
 import com.example.demobase.model.Player;
 import com.example.demobase.repository.PlayerRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,10 +11,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class PlayerService {
     
     private final PlayerRepository playerRepository;
+
+    public PlayerService(PlayerRepository playerRepository) {
+        this.playerRepository = playerRepository;
+    }
     
     public List<PlayerDTO> getAllPlayers() {
         return playerRepository.findAll().stream()
@@ -69,4 +71,3 @@ public class PlayerService {
         return new Player(dto.getId(), dto.getNombre(), dto.getFecha());
     }
 }
-

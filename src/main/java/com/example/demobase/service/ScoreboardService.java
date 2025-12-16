@@ -5,18 +5,21 @@ import com.example.demobase.model.Game;
 import com.example.demobase.model.Player;
 import com.example.demobase.repository.GameRepository;
 import com.example.demobase.repository.PlayerRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class ScoreboardService {
     
     private final PlayerRepository playerRepository;
     private final GameRepository gameRepository;
+
+    public ScoreboardService(PlayerRepository playerRepository, GameRepository gameRepository) {
+        this.playerRepository = playerRepository;
+        this.gameRepository = gameRepository;
+    }
     
     public List<ScoreboardDTO> getScoreboard() {
         return playerRepository.findAll().stream()
@@ -56,4 +59,3 @@ public class ScoreboardService {
         );
     }
 }
-
